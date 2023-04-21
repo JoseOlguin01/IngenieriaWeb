@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Preferencias</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/preferencias.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="bg-custom-1">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="index.html"><h1>Nombre app</h1></a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="login.html">Login</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="registrar.html">Registrarse</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="preferencias.html">Preferencias</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contacto.html">Contactanos</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+        </header>
+
+        <div class="container-fluid">
+            <div class="columnas">
+                <h2>Para personalizar tu experiencia, selecciona de acuerdo a tus preferencias.</h2>
+                <div class="row row-cols-2">
+                    <div class="col">
+                        <br>
+                        <span>Qué música escuchas?</span>
+                        <ul>
+                            <li>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Pop</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Rock</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Dance</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Hip-Hop</button>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col">
+                        <br>
+                        <span>Qué ejercicios realizas?</span>
+                        <ul>
+                            <li>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="button" autocomplete="off">Cardio</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="button" autocomplete="off">Yoga</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="button" autocomplete="off">Escalada</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="button" autocomplete="off">Basketball</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <section class="formulario">
+                    <form method="post">
+                        <input class="botons" type="submit" value="Ingresar Selecciones">
+                    </form>
+                </section>
+            </div>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    </body>
+</html>

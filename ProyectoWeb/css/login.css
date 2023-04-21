@@ -1,10 +1,75 @@
+body{
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
 header{
     color: white;
     background-color: midnightblue;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
 }
 
+#brand{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 50px;
+}
 
+#logo{
+    height: 200px;
+}
 
-.login-caja{
+.form-box{
+    border: solid 3px black;
+    border-radius: 100px;
+    width: 40%;
+    display: block;
+    margin: auto;
+    background-color: whitesmoke;
+}
+
+.form-box p{
+    display: grid;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 3%;
     text-align: center;
+}
+
+.form-box label{
+    display: block;
+    text-align: center;
+}
+
+.form-box input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submit{
+    margin-bottom: 3%;
+}
+
+#crear-cuenta{
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 3%;
+}
+
+footer{
+    display: flex;
+    background-color: midnightblue;
+    color: antiquewhite;
+    min-height: 100px;
+    justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }

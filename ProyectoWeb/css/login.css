@@ -1,17 +1,26 @@
 body{
-    background-image: url("../images/fondo.jpg");
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .container-fluid .navbar-brand{
     color: whitesmoke;
+    font-size: 30px
 }
 
 .navbar-nav li a{
     color:whitesmoke;
 }
 
-.bg-custom-1 {
+header{
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    font-family: 'Inter', sans-serif;
+}
+
+#logo{
+    height: 100px;
 }
 
 .login-caja{
@@ -19,11 +28,11 @@ body{
     background: #3895b9;
     padding: 30px;
     margin: auto;
-    margin-top: 100px;
     border-radius: 4px;
-    font-family: 'calibri';
+    font-family: 'Inter', sans-serif;
     color: white;
     box-shadow: 7px 13px 37px #000;
+    border-radius: 10%;
 }
 .controls {
     width: 100%;
@@ -32,7 +41,6 @@ body{
     border-radius: 4px;
     margin-bottom: 16px;
     border: 1px solid #1f53c5;
-    font-family: 'calibri';
     font-size: 18px;
     color: white;
 }
@@ -47,3 +55,25 @@ body{
     font-size: 16px;
   }
 
+.botons:hover{
+    font-weight: bold;
+}
+
+  footer{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    background-image: none;
+    background-color: grey;
+    min-height: 100px;
+    justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+a:visited{
+    color: #000;
+}
+
+a:hover{
+    color:white;
+}

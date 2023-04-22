@@ -31,6 +31,14 @@ body{
     list-style-type: none;
 }
 
+.formulario li{
+    margin: 1em;
+}
+
 .form-control{
     width: 100% !important;
+}
+
+label.error{
+    color: red;
 }

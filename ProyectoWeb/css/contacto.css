@@ -27,6 +27,10 @@ body{
     box-shadow: 7px 13px 37px #000; 
 }
 
+.formulario{
+    list-style-type: none;
+}
+
 .form-control{
     width: 100% !important;
 }

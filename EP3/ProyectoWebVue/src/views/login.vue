@@ -21,7 +21,7 @@
   </template>
   
   <style lang="scss">
-  @import '../assets/index.scss';
+  @import '../assets/login.scss';
   </style>
   
   <script>

@@ -1,188 +1,46 @@
-<!DOCTYPE html>
+<template>
+  <div>
+    <div class="columna">
+      <Card
+        v-for="card in cards"
+        :key="card.id"
+        :imageSrc="(`../assets/images/${card.imageSrc}`)"
+        :title="card.title"
+        :description="card.description"
+      />
+    </div>
+  </div>
+</template>
 
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Preparar rutina</title>
-        <link rel="icon" href="images/logo.png">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="sass/rutinas.css">
+<script>
+import Card from "../components/Card.vue";
 
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+export default {
+  components: {
+    Card,
+  },
+  data() {
+    return {
+      cards: [
+        {
+          id: 1,
+          imageSrc: "rock.jpg",
+          title: "ROCK LIFTING",
+          description: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+        },
+        {
+          id: 2,
+          imageSrc: "80.jpg",
+          title: "80'S FITNESS",
+          description: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+        },
+        // Agrega más objetos de tarjeta según sea necesario
+      ],
+    };
+  },
+};
+</script>
 
-        <!-- Fuentes -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-
-        <!-- jquery -->
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
-        
-    </head>
-    <body>
-        <header>
-            <div class="container-fluid">
-                    <nav class="navbar navbar-expand-lg">
-                        <div class="container-fluid">
-                            <a class="navbar-brand" href="index.html"><img id="logo" src="images/logo.png" alt=""><span>HiFitness</span></a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarNav">
-                                <ul class="navbar-nav">
-
-                                  <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="login.html">Login</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="registrar.html">Registrarse</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="preferencias.html">Preferencias</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contacto.html">Contactanos</a>
-                                </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-        </header>
-
-        <main>
-            <div class="columna">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/rock.jpg" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title">ROCK LIFTING</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/80.jpg" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title">80'S FITNESS</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/run.jpg" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title">RUNNING FOLK</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/ejemplo.png" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title">NOMBRE PLAYLIST</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-
-            <div class="columna">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/rocky.jpg" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <p class="card-text">Gonna Fly Now (Theme from Rocky)</p>
-                          <p class="card-text">Bill Conti</p>
-                          <p class="card-text">Rock</p>
-                          <p class="card-text">Levantamiento de peso, cardio</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/rush.jpg" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                        <p class="card-text">YYZ</p>
-                        <p class="card-text">Rush</p>
-                        <p class="card-text">Prog Rock</p>
-                        <p class="card-text">Levantamiento de potencia</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/ejemplo.png" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <a class="imagen" href="#"><img src="images/ejemplo.png" class="img-fluid rounded-start" alt="..."></a>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-
-        </main>
-
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    </body>
-</html>
+<style lang="scss">
+@import '../assets/rutinas.scss';
+</style>

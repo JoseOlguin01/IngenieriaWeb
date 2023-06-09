@@ -5,6 +5,7 @@ import Registrar from '../views/registrar.vue'
 import Preferencias from '../views/preferencias.vue'
 import Contacto from '../views/contacto.vue'
 import Cambiarcontrasena from '../views/cambiarcontrasena.vue'
+import Rutinas from '../views/rutinas.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +49,12 @@ const router = createRouter({
       name: 'Cambiarcontrasena',
 
       component: Cambiarcontrasena
+    },
+    {
+      path: '/rutinas',
+      name: 'Rutinas',
+
+      component: Rutinas
     }
   ]
 })

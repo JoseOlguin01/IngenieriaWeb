@@ -8,9 +8,9 @@
         <label for="contrasena">Contraseña:</label>
         <input class="controls" type="password" v-model="contrasena" required>
         <br>
-        <a href="cambiarcontrasena.html">¿Has olvidado tu contraseña?</a>
+        <router-link to="/cambiarcontrasena">¿Has olvidado tu contraseña?</router-link>
         <input class="botons" type="submit" value="Ingresar">
-      </form>
+  </form>
   
       <p>¿No tienes una cuenta? <router-link to="/registrar">Crea una aquí</router-link>.</p>
     </div>
@@ -37,3 +37,7 @@
     }
   };
   </script>
+
+<style lang="scss">
+    @import '../assets/login.scss'
+</style>

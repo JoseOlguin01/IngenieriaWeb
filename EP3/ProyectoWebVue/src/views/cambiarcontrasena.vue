@@ -1,7 +1,7 @@
 <template>
     <div class="login-caja">
       <h1>Cambio de Contraseña</h1>
-  
+
       <form @submit.prevent="submitForm" id="formulario" name="formulario">
         <label for="actual_contrasena">Contraseña actual:</label>
         <input class="controls" type="password" v-model="actualContrasena" required>
@@ -17,7 +17,7 @@
       </form>
     </div>
   </template>
-  
+
 <script>
   export default {
     data() {
@@ -34,7 +34,7 @@
     },
   };
   </script>
-  
+
 <style lang="scss">
   @import '../assets/login.scss';
 </style>

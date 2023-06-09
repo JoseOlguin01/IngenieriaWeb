@@ -10,5 +10,5 @@ import Header from './components/header.vue';
 
 
 <style lang="scss">
-  @import './assets/index.scss';
+  @import './assets/index.scss'
 </style>

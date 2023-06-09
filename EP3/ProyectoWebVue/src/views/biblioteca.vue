@@ -37,3 +37,17 @@
             </div>
         </header>
 </template>
+
+<style scoped lang="scss">
+    .container-fluid .navbar-brand{
+    color: whitesmoke;
+}
+
+.navbar-nav li a{
+    color:whitesmoke;
+}
+
+.bg-custom-1 {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+</style>

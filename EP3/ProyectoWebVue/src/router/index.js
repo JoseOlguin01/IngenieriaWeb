@@ -11,7 +11,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Inicio',
+      name: 'Index',
       component: Index
     },
     {
@@ -37,8 +37,12 @@ const router = createRouter({
       name: 'Contacto',
 
       component: Contacto
-    }
-    ,
+    },
+    {
+      path: '/index',
+      name: 'Inicio',
+      component: Index
+    },
     {
       path: '/cambiarcontrasena',
       name: 'Cambiarcontrasena',

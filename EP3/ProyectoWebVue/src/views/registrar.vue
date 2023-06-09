@@ -1,5 +1,4 @@
  <template>
-
         <div class="login-caja">
             <h1>Registro</h1>
             <form action="" id="formulario" name="formulario">
@@ -16,8 +15,13 @@
        
               </form>
         </div>
-    <footer>
+
+        <footer>
       <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
     </footer>
-    
-    </template>
+        
+</template>
+
+<style lang="scss" scoped>
+@import '../assets/registrar.scss';
+</style>

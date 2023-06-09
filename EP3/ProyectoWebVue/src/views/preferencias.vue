@@ -1,42 +1,5 @@
- <!-- <body>
-        <header>
-            <div class="container-fluid">
-                    <nav class="navbar navbar-expand-lg">
-                        <div class="container-fluid">
-                            <a class="navbar-brand" href="index.html"><img id="logo" src="images/logo.png" alt=""><span>HiFitness</span></a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarNav">
-                                <ul class="navbar-nav">
-
-                                    <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="registrar.html">Registrarse</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="preferencias.html">Preferencias</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contacto.html">Contactanos</a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-        </header>
-
-        <div class="container-fluid">
+<template>
+    <div class="container-fluid">
             <div class="columnas">
                 <h2>Para personalizar tu experiencia, selecciona de acuerdo a tus preferencias.</h2>
                 <div class="row row-cols-2">
@@ -87,10 +50,62 @@
             </div>
         </div>
 
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    </body> -->
-
-<template> 
-
 </template>
+
+<style scoped lang="scss">
+    body{
+    background-image: url("../assets/images/running-night.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid .navbar-brand{
+    color: whitesmoke;
+}
+
+.navbar-nav li a{
+    color:whitesmoke;
+}
+
+.bg-custom-1 {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+.columnas{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.col ul{
+    margin: 3em;
+    list-style-type: none;
+}
+
+.btn{
+    margin: 1.5em;
+    outline: auto;
+    outline-color: black;
+    width: 30em;
+    text-align: center;
+    height: 3em;
+}
+
+span{
+    outline: auto;
+    outline-color: black;
+    width: 10em;
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: larger;
+    text-align: center;
+    margin-left: 1em;
+    background-color: #13547a;
+    color: whitesmoke;
+}
+
+.formulario{
+    text-align: center;
+}
+</style>

@@ -8,7 +8,7 @@
         <label for="contrasena">Contraseña:</label>
         <input class="controls" type="password" v-model="contrasena" required>
         <br>
-        <a href="cambiarcontrasena.html">¿Has olvidado tu contraseña?</a>
+        <router-link to="/cambiarcontrasena">¿Has olvidado tu contraseña?</router-link>
         <input class="botons" type="submit" value="Ingresar">
       </form>
   
@@ -23,40 +23,65 @@
   <style scoped lang="scss">
   @import '../assets/login.scss';
   </style>
-  
-  <script>
-  export default {
-    name: 'Login',
-    data() {
-      return {
-        nombre: '',
-        contrasena: ''
-      };
-    },
-    methods: {
-      async submitForm() {
-        try {
-          const response = await fetch('/assets/usuarios.json', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              nombre: this.nombre,
-              contrasena: this.contrasena
-            })
-          });
-          if (response.ok) {
-            console.log('Datos guardados exitosamente');
-            // Realiza la redirección o muestra un mensaje de éxito
-          } else {
-            console.error('Error al guardar los datos:', response.status);
-            // Muestra un mensaje de error
+
+<script>
+import $ from 'jquery';
+
+export default {
+  data() {
+    return {
+      intentosFallidos: 0,
+      nombre: '',
+      contrasena: ''
+    };
+  },
+  mounted() {
+    this.initializeValidation();
+  },
+  methods: {
+    initializeValidation() {
+      const self = this;
+      $('#formulario').validate({
+        rules: {
+          nombre: {
+            required: true,
+            rangelength: [3, 30]
+          },
+          contrasena: {
+            required: true,
+            rangelength: [4, 30]
           }
-        } catch (error) {
-          console.error('Error al guardar los datos:', error);
+        },
+        messages: {
+          nombre: {
+            required: 'Este campo es requerido',
+            rangelength: 'El nombre debe tener entre 4 y 30 caracteres'
+          },
+          contrasena: {
+            required: 'Este campo es requerido',
+            rangelength: 'La contraseña debe tener entre 4 y 30 caracteres'
+          }
+        },
+        submitHandler(form) {
+          if (self.nombre === 'nombre_de_usuario' && self.contrasena === 'contrasena_correcta') {
+            form.submit();
+            alert('¡Ha ingresado correctamente!');
+          } else {
+            self.intentosFallidos++;
+            if (self.intentosFallidos >= 3) {
+              alert('Ha excedido el límite de intentos. Por favor, intente más tarde.');
+              return false;
+            } else {
+              alert('Nombre de usuario o contraseña incorrectos. Intento #' + self.intentosFallidos);
+            }
+          }
         }
-      }
+      });
+    },
+    submitForm() {
+      // Lógica adicional para el envío del formulario si es necesario
     }
-  };
-  </script>
+  }
+};
+</script>
+

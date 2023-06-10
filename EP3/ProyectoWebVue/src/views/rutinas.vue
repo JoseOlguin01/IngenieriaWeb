@@ -42,5 +42,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/rutinas.scss';
+@import '../assets/rutinas.scss';
 </style>

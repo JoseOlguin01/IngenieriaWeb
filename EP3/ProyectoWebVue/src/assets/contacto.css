@@ -3,7 +3,7 @@ body {
   margin: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background-image: url("../images/running-02.jpg");
+  background-image: url("../../assets/images/running-02.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }

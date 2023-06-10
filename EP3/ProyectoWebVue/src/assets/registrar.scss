@@ -86,7 +86,7 @@ footer {
   display: flex;
   background-image: none;
   background-color: grey;
-  min-height: 100px;
+  min-height: 80px;
   justify-content: center;
   padding-top: 3em;
   padding-bottom: 3em;
@@ -96,7 +96,7 @@ footer {
   }
 }
 
-label.error {
+.error {
   color: red;
 }
 

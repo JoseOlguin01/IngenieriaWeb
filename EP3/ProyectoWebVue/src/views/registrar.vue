@@ -15,10 +15,9 @@
     </form>
   </div>
 
-    <footer class="foot">
-      <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
-    </footer>
-        
+  <footer class="foot">
+    <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
+  </footer>
 </template>
 
 <style scoped lang="scss">
@@ -27,6 +26,8 @@
 
 <script>
 import axios from 'axios';
+import $ from 'jquery';
+import 'jquery-validation';
 
 export default {
   data() {
@@ -62,6 +63,46 @@ export default {
         console.error('Error al registrar el usuario:', error);
       }
     }
+  },
+  mounted() {
+    $("#formulario").validate({
+      rules: {
+        nombre: {
+          required: true,
+          rangelength: [3, 30]
+        },
+        contrasena: {
+          required: true,
+          rangelength: [4, 30]
+        },
+        conf_contrasena: {
+          required: true,
+          rangelength: [4, 30],
+          equalTo: "#contrasena"
+        }
+      },
+      messages: {
+        nombre: {
+          required: "Este campo es requerido",
+          rangelength: "La contraseña debe ser de 4 a 30 caracteres"
+        },
+        contrasena: {
+          required: "Este campo es requerido",
+          rangelength: "La contraseña debe ser de 4 a 30 caracteres"
+        },
+        conf_contrasena: {
+          required: "Este campo es requerido",
+          rangelength: "La contraseña debe ser de 4 a 30 caracteres",
+          equalTo: "La contraseña debe ser igual a la anterior"
+        }
+      },
+      submitHandler: function(form) {
+        form.submit();
+        alert("Te has registrado con éxito!");
+      }
+    });
   }
 };
 </script>
+
+

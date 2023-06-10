@@ -32,48 +32,5 @@
 </template>
 
 <style scoped lang="scss">
-body{
-    background-image: url("../assets/images/running-02.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.container-fluid .navbar-brand{
-    color: whitesmoke;
-}
-
-.navbar-nav li a{
-    color:whitesmoke;
-}
-
-.bg-custom-1 {
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-}
-
-.contacto{
-    width: 40%;
-    background-color: rgba(0, 0, 0, 0.75);
-    padding: 30px;
-    margin-top: 4em;
-    margin-left: 3em;
-    font-family: 'calibri';
-    color: white;
-    box-shadow: 7px 13px 37px #000; 
-}
-
-.formulario{
-    list-style-type: none;
-}
-
-.formulario li{
-    margin: 1em;
-}
-
-.form-control{
-    width: 100% !important;
-}
-
-label.error{
-    color: red;
-}
+@import '../assets/contacto.scss';
 </style>

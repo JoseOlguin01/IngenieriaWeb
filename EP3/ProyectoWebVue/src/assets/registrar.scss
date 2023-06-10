@@ -77,7 +77,11 @@ header {
   color: white;
 }
 
-footer {
+.foot {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
   font-family: 'Inter', sans-serif;
   display: flex;
   background-image: none;
@@ -88,7 +92,7 @@ footer {
   padding-bottom: 3em;
 
   a:hover {
-    color: white;
+      color: white;
   }
 }
 

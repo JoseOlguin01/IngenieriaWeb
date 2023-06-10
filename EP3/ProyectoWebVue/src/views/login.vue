@@ -15,12 +15,12 @@
       <p>¿No tienes una cuenta? <router-link to="/registrar">Crea una aquí</router-link>.</p>
     </div>
   
-    <footer>
+    <footer class="foot_2">
       <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
     </footer>
   </template>
   
-  <style lang="scss">
+  <style scoped lang="scss">
   @import '../assets/login.scss';
   </style>
   
@@ -34,9 +34,28 @@
       };
     },
     methods: {
-      submitForm() {
-        // Lógica para enviar el formulario o realizar la autenticación
-        // Puedes acceder a los valores ingresados en "this.nombre" y "this.contrasena"
+      async submitForm() {
+        try {
+          const response = await fetch('/assets/usuarios.json', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              nombre: this.nombre,
+              contrasena: this.contrasena
+            })
+          });
+          if (response.ok) {
+            console.log('Datos guardados exitosamente');
+            // Realiza la redirección o muestra un mensaje de éxito
+          } else {
+            console.error('Error al guardar los datos:', response.status);
+            // Muestra un mensaje de error
+          }
+        } catch (error) {
+          console.error('Error al guardar los datos:', error);
+        }
       }
     }
   };

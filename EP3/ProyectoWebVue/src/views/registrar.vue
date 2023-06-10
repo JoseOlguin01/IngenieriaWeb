@@ -16,12 +16,12 @@
               </form>
         </div>
 
-        <footer>
+    <footer class="foot">
       <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
     </footer>
         
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 @import '../assets/registrar.scss';
 </style>

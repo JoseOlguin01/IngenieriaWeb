@@ -1,22 +1,21 @@
- <template>
-        <div class="login-caja">
-            <h1>Registro</h1>
-            <form action="" id="formulario" name="formulario">
-                <label for="nombre">Nombre de usuario:</label>
-                <input class="controls" type="text" id="nombre" name="nombre" required>
-                <br>
-                <label for="contrasena">Contraseña:</label>
-                <input class="controls" type="password" id="contrasena" name="contrasena" required>
-                <br>
-                <label for="conf_contrasena">Confirmar Contraseña:</label>
-                <input class="controls" type="password" id="conf_contrasena" name="conf_contrasena" required>
-                <br>
-                <input class="botons" type="submit" value="Registrarse">
-       
-              </form>
-        </div>
+<template>
+  <div class="login-caja">
+    <h1>Registro</h1>
+    <form @submit="submitForm" id="formulario" name="formulario">
+      <label for="nombre">Nombre de usuario:</label>
+      <input class="controls" type="text" id="nombre" name="nombre" v-model="nombre" required>
+      <br>
+      <label for="contrasena">Contraseña:</label>
+      <input class="controls" type="password" id="contrasena" name="contrasena" v-model="contrasena" required>
+      <br>
+      <label for="conf_contrasena">Confirmar Contraseña:</label>
+      <input class="controls" type="password" id="conf_contrasena" name="conf_contrasena" v-model="confContrasena" required>
+      <br>
+      <input class="botons" type="submit" value="Registrarse">
+    </form>
+  </div>
 
-      <footer class="foot">
+    <footer class="foot">
       <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
     </footer>
         
@@ -27,49 +26,42 @@
 </style>
 
 <script>
-import $ from 'jquery';
-import 'jquery-validation';
+import axios from 'axios';
 
 export default {
-  mounted() {
-    const form = $('#formulario');
+  data() {
+    return {
+      nombre: '',
+      contrasena: '',
+      confContrasena: ''
+    };
+  },
+  methods: {
+    async submitForm(event) {
+      event.preventDefault();
 
-    form.validate({
-      rules: {
-        nombre: {
-          required: true,
-          rangelength: [3, 30]
-        },
-        contrasena: {
-          required: true,
-          rangelength: [4, 30]
-        },
-        conf_contrasena: {
-          required: true,
-          rangelength: [4, 30],
-          equalTo: "#contrasena"
-        }
-      },
-      messages: {
-        nombre: {
-          required: "Este campo es requerido",
-          rangelength: "La contraseña debe tener entre 4 y 30 caracteres"
-        },
-        contrasena: {
-          required: "Este campo es requerido",
-          rangelength: "La contraseña debe tener entre 4 y 30 caracteres"
-        },
-        conf_contrasena: {
-          required: "Este campo es requerido",
-          rangelength: "La contraseña debe tener entre 4 y 30 caracteres",
-          equalTo: "La contraseña debe ser igual a la anterior"
-        }
-      },
-      submitHandler: (form) => {
-        form.submit();
-        alert("Te has registrado con éxito!");
+      if (this.contrasena !== this.confContrasena) {
+        alert('La contraseña debe coincidir con la confirmación de contraseña.');
+        return;
       }
-    });
+
+      try {
+        const response = await axios.post('http://localhost:3000/usuarios', {
+          nombre: this.nombre,
+          contrasena: this.contrasena
+        });
+
+        if (response.status === 200) {
+          console.log('Usuario registrado exitosamente');
+          // Realiza la redirección o muestra un mensaje de éxito
+        } else {
+          console.error('Error al registrar el usuario:', response.status);
+          // Muestra un mensaje de error
+        }
+      } catch (error) {
+        console.error('Error al registrar el usuario:', error);
+      }
+    }
   }
 };
 </script>

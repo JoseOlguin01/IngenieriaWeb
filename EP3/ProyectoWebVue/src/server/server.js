@@ -45,6 +45,26 @@ app.post('/usuarios', (req, res) => {
   });
 });
 
+// Ruta para obtener la lista de usuarios
+app.get('/usuarios', (req, res) => {
+  // Leer el archivo JSON de usuarios
+  fs.readFile('./usuarios.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error al leer el archivo usuarios.json:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+
+    // Parsear los datos JSON existentes
+    let usuarios = [];
+    if (data) {
+      usuarios = JSON.parse(data);
+    }
+
+    res.status(200).json(usuarios);
+  });
+});
+
 // Iniciar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor Express iniciado en el puerto ${PORT}`);

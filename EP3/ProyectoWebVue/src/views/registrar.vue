@@ -46,6 +46,11 @@ export default {
         return;
       }
 
+      if (this.nombre.trim() === '' || this.contrasena.trim() === '' || this.confContrasena.trim() === '') {
+        alert('Por favor, complete todos los campos.');
+        return;
+      }
+
       try {
         const response = await axios.post('http://localhost:3000/usuarios', {
           nombre: this.nombre,

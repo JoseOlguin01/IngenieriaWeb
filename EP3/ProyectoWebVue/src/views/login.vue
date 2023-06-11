@@ -1,31 +1,33 @@
 <template>
-    <div class="login-caja">
-      <h1>Iniciar sesión</h1>
-      <form @submit.prevent="submitForm" id="formulario" name="formulario">
-        <label for="nombre">Nombre de usuario:</label>
-        <input class="controls" type="text" v-model="nombre" required>
-        <br>
-        <label for="contrasena">Contraseña:</label>
-        <input class="controls" type="password" v-model="contrasena" required>
-        <br>
-        <router-link to="/cambiarcontrasena">¿Has olvidado tu contraseña?</router-link>
-        <input class="botons" type="submit" value="Ingresar">
-      </form>
-  
-      <p>¿No tienes una cuenta? <router-link to="/registrar">Crea una aquí</router-link>.</p>
-    </div>
-  
-    <footer class="foot_2">
-      <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
-    </footer>
-  </template>
-  
-  <style scoped lang="scss">
-  @import '../assets/login.scss';
-  </style>
+  <div class="login-caja">
+    <h1>Iniciar sesión</h1>
+    <form @submit.prevent="submitForm" id="formulario" name="formulario">
+      <label for="nombre">Nombre de usuario:</label>
+      <input class="controls" type="text" id="nombre" name="nombre" v-model="nombre" required>
+      <br>
+      <label for="contrasena">Contraseña:</label>
+      <input class="controls" type="password" id="contrasena" name="contrasena" v-model="contrasena" required>
+      <br>
+      <router-link to="/cambiarcontrasena">¿Has olvidado tu contraseña?</router-link>
+      <input class="botons" type="submit" value="Ingresar">
+    </form>
+
+    <p>¿No tienes una cuenta? <router-link to="/registrar">Crea una aquí</router-link>.</p>
+  </div>
+
+  <footer class="foot_2">
+    <span><router-link to="/contacto">¿Qué es HiFitness?</router-link></span>
+  </footer>
+</template>
+
+<style scoped lang="scss">
+@import '../assets/login.scss';
+</style>
 
 <script>
+import axios from 'axios';
 import $ from 'jquery';
+import 'jquery-validation';
 
 export default {
   data() {
@@ -36,47 +38,64 @@ export default {
     };
   },
   mounted() {
-    this.initializeValidation();
+    const self = this;
+    $.validator.setDefaults({
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+      }
+    });
+
+    $("#formulario").validate({
+      rules: {
+        nombre: {
+          required: true,
+          rangelength: [3, 30]
+        },
+        contrasena: {
+          required: true,
+          rangelength: [4, 30]
+        }
+      },
+      messages: {
+        nombre: {
+          required: 'Este campo es requerido',
+          rangelength: 'El nombre debe tener entre 3 y 30 caracteres'
+        },
+        contrasena: {
+          required: 'Este campo es requerido',
+          rangelength: 'La contraseña debe tener entre 4 y 30 caracteres'
+        }
+      },
+      submitHandler(form) {
+        self.login();
+      }
+    });
   },
   methods: {
-    initializeValidation() {
-      const self = this;
-      $('#formulario').validate({
-        rules: {
-          nombre: {
-            required: true,
-            rangelength: [3, 30]
-          },
-          contrasena: {
-            required: true,
-            rangelength: [4, 30]
-          }
-        },
-        messages: {
-          nombre: {
-            required: 'Este campo es requerido',
-            rangelength: 'El nombre debe tener entre 4 y 30 caracteres'
-          },
-          contrasena: {
-            required: 'Este campo es requerido',
-            rangelength: 'La contraseña debe tener entre 4 y 30 caracteres'
-          }
-        },
-        submitHandler(form) {
-          if (self.nombre === 'nombre_de_usuario' && self.contrasena === 'contrasena_correcta') {
-            form.submit();
-            alert('¡Ha ingresado correctamente!');
+    async login() {
+      try {
+        const response = await axios.get('http://localhost:3000/usuarios');
+        const usuarios = response.data;
+
+        const usuarioEncontrado = usuarios.find(
+          usuario =>
+            usuario.nombre === this.nombre && usuario.contrasena === this.contrasena
+        );
+
+        if (usuarioEncontrado) {
+          alert('¡Ha ingresado correctamente!');
+          // Realiza la redirección o muestra un mensaje de éxito
+        } else {
+          this.intentosFallidos++;
+          if (this.intentosFallidos >= 3) {
+            alert('Ha excedido el límite de intentos. Por favor, intente más tarde.');
           } else {
-            self.intentosFallidos++;
-            if (self.intentosFallidos >= 3) {
-              alert('Ha excedido el límite de intentos. Por favor, intente más tarde.');
-              return false;
-            } else {
-              alert('Nombre de usuario o contraseña incorrectos. Intento #' + self.intentosFallidos);
-            }
+            alert('Nombre de usuario o contraseña incorrectos. Intento #' + this.intentosFallidos);
           }
         }
-      });
+      } catch (error) {
+        console.error('Error al obtener los usuarios:', error);
+      }
     },
     submitForm() {
       // Lógica adicional para el envío del formulario si es necesario
@@ -84,4 +103,9 @@ export default {
   }
 };
 </script>
+
+
+
+
+
 

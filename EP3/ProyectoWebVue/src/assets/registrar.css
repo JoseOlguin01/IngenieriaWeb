@@ -73,11 +73,15 @@ header #logo {
 }
 
 footer {
+  /* position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center; */
   font-family: "Inter", sans-serif;
   display: flex;
   background-image: none;
   background-color: grey;
-  min-height: 100px;
+  min-height: 80px;
   justify-content: center;
   padding-top: 3em;
   padding-bottom: 3em;
@@ -86,7 +90,7 @@ footer a:hover {
   color: white;
 }
 
-label.error {
+.error {
   color: red;
 }
 

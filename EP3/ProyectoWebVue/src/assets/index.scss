@@ -42,25 +42,42 @@ header {
 
 .presentacion{
     text-align: center;
-    width: fit-content;
+    width: 70%;
     margin: auto;
     padding: 5px;
     margin-top: 4em;
-    background: #3895b9;
-    box-shadow: 7px 13px 37px #000;
+    background: #ADD8E6;
+    box-shadow: 7px 7px 37px #000;
+    border-radius: 30px;
+
+    img{
+        width: 60%;
+        margin-top: 10px;
+    }
 
     h2{
         color: whitesmoke;
+        padding: 10px;
+        border: 4px #13547a solid;
+        background-color: #3895b9;
+        border-radius: 100px;
+        width: 65%;
+        margin: auto;
     }
 
-    ul li{
-        color: whitesmoke;
+    div{
+        color: black;
         text-align: justify;
+        p{
+            margin-left: 50px;
+            margin-right: 50px;
+        }
     }
 }
 
 .columna{
     margin: 100px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }

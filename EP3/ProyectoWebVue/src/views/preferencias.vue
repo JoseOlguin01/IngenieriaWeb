@@ -5,7 +5,7 @@
                 <div class="row row-cols-2">
                     <div class="col">
                         <br>
-                        <span>Qué música escuchas?</span>
+                        <span>¿Qué música escuchas?</span>
                         <ul>
                             <li>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Pop</button>

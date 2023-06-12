@@ -59,10 +59,10 @@ export default {
 
         if (response.status === 200) {
           console.log('Usuario registrado exitosamente');
-          // Realiza la redirección o muestra un mensaje de éxito
+
         } else {
           console.error('Error al registrar el usuario:', response.status);
-          // Muestra un mensaje de error
+
         }
       } catch (error) {
         console.error('Error al registrar el usuario:', error);

@@ -84,7 +84,7 @@ export default {
 
         if (usuarioEncontrado) {
           alert('¡Ha ingresado correctamente!');
-          // Realiza la redirección o muestra un mensaje de éxito
+
         } else {
           this.intentosFallidos++;
           if (this.intentosFallidos >= 3) {
@@ -98,7 +98,7 @@ export default {
       }
     },
     submitForm() {
-      // Lógica adicional para el envío del formulario si es necesario
+
     }
   }
 };

@@ -34,7 +34,7 @@ export default {
           title: "80'S FITNESS",
           description: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
         },
-        // Agrega más objetos de tarjeta según sea necesario
+
       ],
     };
   },

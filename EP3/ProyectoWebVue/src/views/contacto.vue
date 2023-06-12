@@ -111,7 +111,7 @@ export default {
       }, 'Por favor, ingrese un correo electrónico válido que termine en .com, .net o .cl');
     },
     submitForm() {
-      // Lógica adicional para el envío del formulario, si es necesario
+
     }
   }
 };

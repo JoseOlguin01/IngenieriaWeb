@@ -14,7 +14,7 @@ La pestaña "Listas de reproducción" muestra al usuario cada rutina-playlist a 
 
 ## EP3 - Análisis de funcionalidades
 
-Para la tercera entrega parcial del proyecto, se implementó el framework Vue.js en la aplicación web. El ambiente que ofrece Vue.js.
+Para la tercera entrega parcial del proyecto, se implementó el framework Vue.js en la aplicación web.
 
 Con su enfoque en componentes reutilizables, Vue permite construir rápidamente piezas de código reutilizables. Además, su rendimiento optimizado y características como la carga diferida de componentes garantizan una experiencia de usuario fluida.
 

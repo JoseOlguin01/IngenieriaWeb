@@ -1,40 +1,17 @@
 body {
-  min-height: 100vh;
-  margin: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-image: url("../images/fondo.jpg");
 }
 
 .container-fluid .navbar-brand {
-  color: black;
-  font-size: 30px;
+  color: whitesmoke;
 }
 
 .navbar-nav li a {
   color: whitesmoke;
 }
 
-header {
+.bg-custom-1 {
   background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-  font-family: "Inter", sans-serif;
-}
-header #logo {
-  height: 100px;
-  margin-right: 20px;
-}
-
-.navbar-brand {
-  padding-right: 20px;
-}
-.navbar-brand:hover {
-  font-weight: bold;
-}
-.navbar-brand a:hover {
-  color: white;
-}
-.navbar-brand a:visited {
-  color: white;
 }
 
 .login-caja {
@@ -42,23 +19,11 @@ header #logo {
   background: #3895b9;
   padding: 30px;
   margin: auto;
+  margin-top: 100px;
   border-radius: 4px;
-  font-family: "Inter", sans-serif;
+  font-family: "calibri";
   color: white;
   box-shadow: 7px 13px 37px #000;
-  border-radius: 10%;
-}
-.login-caja .botons {
-  width: 100%;
-  background: #1f53c5;
-  border: none;
-  padding: 12px;
-  color: white;
-  margin: 16px 0;
-  font-size: 16px;
-}
-.login-caja .botons:hover {
-  font-weight: bold;
 }
 
 .controls {
@@ -68,26 +33,21 @@ header #logo {
   border-radius: 4px;
   margin-bottom: 16px;
   border: 1px solid #1f53c5;
+  font-family: "calibri";
   font-size: 18px;
   color: white;
 }
 
-footer {
-  font-family: "Inter", sans-serif;
-  display: flex;
-  background-image: none;
-  background-color: grey;
-  min-height: 100px;
-  justify-content: center;
-  padding-top: 3em;
-  padding-bottom: 3em;
-}
-footer a:hover {
+.login-caja .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
   color: white;
+  margin: 16px 0;
+  font-size: 16px;
 }
 
 label.error {
   color: red;
-}
-
-/*# sourceMappingURL=registrar.css.map */
+}/*# sourceMappingURL=registrar.css.map */

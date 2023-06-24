@@ -6,7 +6,7 @@ body {
 }
 
 .container-fluid .navbar-brand {
-  color: black;
+  color: whitesmoke;
   font-size: 30px;
 }
 
@@ -18,22 +18,9 @@ header {
   background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   font-family: "Inter", sans-serif;
 }
-header #logo {
-  height: 100px;
-  margin-right: 20px;
-}
 
-.navbar-brand {
-  padding-right: 20px;
-}
-.navbar-brand:hover {
-  font-weight: bold;
-}
-.navbar-brand a:hover {
-  color: white;
-}
-.navbar-brand a:visited {
-  color: white;
+#logo {
+  height: 100px;
 }
 
 .login-caja {
@@ -47,18 +34,6 @@ header #logo {
   box-shadow: 7px 13px 37px #000;
   border-radius: 10%;
 }
-.login-caja .botons {
-  width: 100%;
-  background: #1f53c5;
-  border: none;
-  padding: 12px;
-  color: white;
-  margin: 16px 0;
-  font-size: 16px;
-}
-.login-caja .botons:hover {
-  font-weight: bold;
-}
 
 .controls {
   width: 100%;
@@ -71,6 +46,20 @@ header #logo {
   color: white;
 }
 
+.login-caja .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.botons:hover {
+  font-weight: bold;
+}
+
 footer {
   font-family: "Inter", sans-serif;
   display: flex;
@@ -81,7 +70,12 @@ footer {
   padding-top: 3em;
   padding-bottom: 3em;
 }
-footer a:hover {
+
+a:visited {
+  color: #000;
+}
+
+a:hover {
   color: white;
 }
 

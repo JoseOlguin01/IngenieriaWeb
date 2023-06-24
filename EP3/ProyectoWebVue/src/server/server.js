@@ -43,6 +43,32 @@ app.post('/usuarios', (req, res) => {
   });
 });
 
+// PUT
+app.put('/usuarios/:id', (req, res) => {
+  const { id } = req.params;
+  const { actualContrasena, nuevaContrasena } = req.body;
+
+  const sql = `UPDATE usuarios SET contrasena = ? WHERE idUsuario = ? AND contrasena = ?`;
+
+  connection.query(sql, [nuevaContrasena, id, actualContrasena], (err, result) => {
+    if (err) {
+      console.error('Error al actualizar la contraseña:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+
+    if (result.affectedRows == 0) {
+      console.log('Contraseña incorrecta');
+      res.status(400).send('Contraseña incorrecta');
+      return;
+    }
+
+    console.log('Contraseña actualizada exitosamente');
+    res.sendStatus(200);
+  });
+});
+
+
 // GET
 app.get('/usuarios', (req, res) => {
   const query = `SELECT * FROM usuarios`;

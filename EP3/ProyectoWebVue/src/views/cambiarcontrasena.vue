@@ -20,60 +20,84 @@
 </template>
 
 <script>
+import axios from 'axios';
 import $ from 'jquery';
 import 'jquery-validation';
 
 export default {
-mounted(){
-  const form = $('#formulario');
-  form.validate({
-    rules:{
-        actual_contrasena:{
-            required: true,
-            rangelength:[4,30]
-            
-        },
-        nueva_contrasena:{
-            required: true,
-            rangelength:[4,30]
+  mounted() {
+    const self = this;
+    $.validator.setDefaults({
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+      }
+    });
 
+    $("#formulario").validate({
+      rules: {
+        actual_contrasena: {
+          required: true,
+          rangelength: [4, 30]
         },
-        conf_contrasena:{
-            required: true,
-            rangelength:[4,30],
-            equalTo: "#nueva_contrasena"
+        nueva_contrasena: {
+          required: true,
+          rangelength: [4, 30]
+        },
+        conf_contrasena: {
+          required: true,
+          rangelength: [4, 30],
+          equalTo: "#nueva_contrasena"
         }
-        
+      },
+      messages: {
+        actual_contrasena: {
+          required: 'Este campo es requerido',
+          rangelength: 'La contraseña debe tener entre 4 y 30 caracteres'
+        },
+        nueva_contrasena: {
+          required: 'Este campo es requerido',
+          rangelength: 'La contraseña debe tener entre 4 y 30 caracteres'
+        },
+        conf_contrasena: {
+          required: 'Este campo es requerido',
+          rangelength: 'La contraseña debe tener entre 4 y 30 caracteres',
+          equalTo: 'La contraseña debe ser igual a la nueva'
+        }
+      },
+      submitHandler(form) {
+        self.cambiarContrasena();
+      }
+    });
+  },
+  methods: {
+    async cambiarContrasena() {
+      try {
+        const idUsuario = 1;
 
-    },messages:{
-        actual_contrasena:{
-            required: "Este campo es requerido",
-            rangelength: "La contraseña debe ser de 4 a 30 caracteres",
-            
-        },
-        nueva_contrasena:{
-            required: "Este campo es requerido",
-            rangelength: "La contraseña debe ser de 4 a 30 caracteres",
-            
-        },
-        conf_contrasena:{
-            required: "Este campo es requerido",
-            rangelength: "La contraseña debe ser de 4 a 30 caracteres",
-            equalTo: "La contraseña debe ser igual a la nueva"
-        },
+        const actualContrasena = $("#actual_contrasena").val();
+        const nuevaContrasena = $("#nueva_contrasena").val();
+
+        const response = await axios.put(`http://localhost:3000/usuarios/${idUsuario}`, {
+          actualContrasena: actualContrasena,
+          nuevaContrasena: nuevaContrasena
+        });
+
+        if (response.status === 200) {
+          alert('Contraseña cambiada con éxito!');
+        } else {
+          console.alert('Error al cambiar la contraseña');
+        }
+      } catch (error) {
+        console.error('Error al cambiar la contraseña:', error);
+      }
     },
 
+    submitForm() {
 
-    submitHandler: function(form) {
-      form.submit();
-      alert("Contraseña cambiada con exito!")
     }
-  });
-}
-
+  }
 };
 </script>
-
 
 
 

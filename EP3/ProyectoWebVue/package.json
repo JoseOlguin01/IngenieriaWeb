@@ -18,6 +18,8 @@
     "express": "^4.18.2",
     "jquery": "^3.7.0",
     "jquery-validation": "^1.19.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.4.0",
     "vee-validate": "^4.9.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.0"

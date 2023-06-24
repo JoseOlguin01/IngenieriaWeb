@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mysql = require('mysql2');
 const fs = require('fs');
 
 const app = express();
@@ -10,61 +11,51 @@ const PORT = 3000;
 
 app.use(bodyParser.json());
 
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'HiFitness' 
+});
+
+connection.connect(err => {
+  if (err) {
+    console.error('Error al conectar con la base de datos:', err);
+    return;
+  }
+  console.log('Conexión exitosa a la base de datos MySQL');
+});
+
 // POST
 app.post('/usuarios', (req, res) => {
   const { nombre, contrasena } = req.body;
 
-
-  fs.readFile('./usuarios.json', 'utf8', (err, data) => {
+  const query = `INSERT INTO usuarios (nombre, contrasena) VALUES (?, ?)`;
+  connection.query(query, [nombre, contrasena], (err, result) => {
     if (err) {
-      console.error('Error al leer el archivo usuarios.json:', err);
+      console.error('Error al insertar el usuario en la base de datos:', err);
       res.status(500).send('Error en el servidor');
       return;
     }
 
-
-    let usuarios = [];
-    if (data) {
-      usuarios = JSON.parse(data);
-    }
-
-
-    usuarios.push({ nombre, contrasena });
-
-
-    fs.writeFile('./usuarios.json', JSON.stringify(usuarios), 'utf8', (err) => {
-      if (err) {
-        console.error('Error al escribir en el archivo usuarios.json:', err);
-        res.status(500).send('Error en el servidor');
-        return;
-      }
-
-      console.log('Usuario registrado exitosamente');
-      res.sendStatus(200);
-    });
+    console.log('Usuario registrado exitosamente');
+    res.sendStatus(200);
   });
 });
 
 // GET
 app.get('/usuarios', (req, res) => {
-
-  fs.readFile('./usuarios.json', 'utf8', (err, data) => {
+  const query = `SELECT * FROM usuarios`;
+  connection.query(query, (err, results) => {
     if (err) {
-      console.error('Error al leer el archivo usuarios.json:', err);
+      console.error('Error al obtener los usuarios de la base de datos:', err);
       res.status(500).send('Error en el servidor');
       return;
     }
 
-
-    let usuarios = [];
-    if (data) {
-      usuarios = JSON.parse(data);
-    }
-
-    res.status(200).json(usuarios);
+    res.status(200).json(results);
   });
 });
-
 
 app.listen(PORT, () => {
   console.log(`Servidor Express iniciado en el puerto ${PORT}`);

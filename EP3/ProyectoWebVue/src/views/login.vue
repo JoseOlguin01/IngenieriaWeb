@@ -9,6 +9,8 @@
       <input class="controls" type="password" id="contrasena" name="contrasena" v-model="contrasena" required>
       <br>
       <router-link to="/cambiarcontrasena">¿Has olvidado tu contraseña?</router-link>
+      <br>
+      <router-link to="/eliminarcuenta">Eliminar una cuenta</router-link>
       <input class="botons" type="submit" value="Ingresar">
     </form>
 

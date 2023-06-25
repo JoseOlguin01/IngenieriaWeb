@@ -6,6 +6,7 @@ import Preferencias from '../views/preferencias.vue'
 import Contacto from '../views/contacto.vue'
 import Cambiarcontrasena from '../views/cambiarcontrasena.vue'
 import Rutinas from '../views/rutinas.vue'
+import Eliminarcuenta from '../views/eliminarcuenta.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -55,6 +56,12 @@ const router = createRouter({
       name: 'Rutinas',
 
       component: Rutinas
+    },
+    {
+      path: '/eliminarcuenta',
+      name: 'Eliminarcuenta',
+
+      component: Eliminarcuenta
     }
   ]
 })

@@ -83,6 +83,29 @@ app.get('/usuarios', (req, res) => {
   });
 });
 
+// DELETE
+app.delete('/usuarios', (req, res) => {
+  const { nombre, contrasena } = req.body;
+
+  const query = `DELETE FROM usuarios WHERE nombre = ? AND contrasena = ?`;
+  connection.query(query, [nombre, contrasena], (err, result) => {
+    if (err) {
+      console.error('Error al eliminar la cuenta de usuario:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+
+    if (result.affectedRows == 0) {
+      console.log('Nombre de usuario o contraseña incorrectos');
+      res.status(400).send('Nombre de usuario o contraseña incorrectos');
+      return;
+    }
+
+    console.log('Cuenta eliminada exitosamente');
+    res.sendStatus(200);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor Express iniciado en el puerto ${PORT}`);
 });

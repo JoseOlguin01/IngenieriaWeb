@@ -44,13 +44,12 @@ app.post('/usuarios', (req, res) => {
 });
 
 // PUT
-app.put('/usuarios/:id', (req, res) => {
-  const { id } = req.params;
+app.put('/usuarios', (req, res) => {
   const { actualContrasena, nuevaContrasena } = req.body;
 
-  const sql = `UPDATE usuarios SET contrasena = ? WHERE idUsuario = ? AND contrasena = ?`;
+  const sql = 'UPDATE usuarios SET contrasena = ? WHERE contrasena = ?';
 
-  connection.query(sql, [nuevaContrasena, id, actualContrasena], (err, result) => {
+  connection.query(sql, [nuevaContrasena, actualContrasena], (err, result) => {
     if (err) {
       console.error('Error al actualizar la contraseña:', err);
       res.status(500).send('Error en el servidor');
@@ -67,6 +66,7 @@ app.put('/usuarios/:id', (req, res) => {
     res.sendStatus(200);
   });
 });
+
 
 
 // GET

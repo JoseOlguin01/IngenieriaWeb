@@ -72,12 +72,10 @@ export default {
   methods: {
     async cambiarContrasena() {
       try {
-        const idUsuario = 1;
-
         const actualContrasena = $("#actual_contrasena").val();
         const nuevaContrasena = $("#nueva_contrasena").val();
 
-        const response = await axios.put(`http://localhost:3000/usuarios/${idUsuario}`, {
+        const response = await axios.put('http://localhost:3000/usuarios', {
           actualContrasena: actualContrasena,
           nuevaContrasena: nuevaContrasena
         });

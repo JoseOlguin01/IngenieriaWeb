@@ -44,6 +44,7 @@ header {
     background: #3895b9;
     padding: 30px;
     margin: auto;
+    margin-top: 1em;
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
     color: white;
@@ -85,7 +86,7 @@ footer {
     display: flex;
     background-image: none;
     background-color: grey;
-    min-height: 100px;
+    max-height: 10px;
     justify-content: center;
     padding-top: 3em;
     padding-bottom: 3em;

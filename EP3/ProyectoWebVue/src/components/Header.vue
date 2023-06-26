@@ -21,6 +21,9 @@
               <li class="nav-item" v-if="!isLoggedIn || isAdmin">
                 <router-link class="nav-link" to="/registrar">Registrarse</router-link>
               </li>
+              <li class="nav-item" v-if="isLoggedIn && isAdmin">
+                <router-link class="nav-link" to="/eliminarcuenta">Eliminar cuenta</router-link>
+              </li>
               <li class="nav-item" v-if="isLoggedIn || isAdmin">
                 <router-link class="nav-link" to="/preferencias">Preferencias</router-link>
               </li>
@@ -46,9 +49,11 @@ export default {
     ...mapGetters(['getRole', 'isLoggedIn', 'isAdmin']),
   },
   methods: {
-    ...mapActions(['setRole']),
+    ...mapActions(['setRole', 'setLoggedIn']),
     logout() {
       this.setRole('usuario');
+      this.setLoggedIn(false);
+      this.$router.push('/login');
     },
   },
 };

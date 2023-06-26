@@ -10,7 +10,6 @@
       <br>
       <router-link to="/cambiarcontrasena">¿Has olvidado tu contraseña?</router-link>
       <br>
-      <router-link to="/eliminarcuenta">Eliminar una cuenta</router-link>
       <input class="botons" type="submit" value="Ingresar">
     </form>
 
@@ -26,7 +25,6 @@
 @import '../assets/login.scss';
 </style>
 
-// login.vue
 <script>
 import axios from 'axios';
 import $ from 'jquery';

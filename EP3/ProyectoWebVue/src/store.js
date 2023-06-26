@@ -4,7 +4,8 @@ const store = createStore({
   state() {
     return {
       count: 0,
-      role: '',
+      role: 'usuario',
+      isLoggedIn: false, 
     };
   },
   mutations: {
@@ -14,6 +15,9 @@ const store = createStore({
     setRole(state, role) {
       state.role = role;
     },
+    setLoggedIn(state, isLoggedIn) { 
+      state.isLoggedIn = isLoggedIn;
+    },
   },
   actions: {
     increment(context) {
@@ -21,6 +25,9 @@ const store = createStore({
     },
     setRole({ commit }, role) {
       commit('setRole', role);
+    },
+    setLoggedIn({ commit }, isLoggedIn) { 
+      commit('setLoggedIn', isLoggedIn);
     },
   },
   getters: {
@@ -30,8 +37,16 @@ const store = createStore({
     getRole(state) {
       return state.role;
     },
+    isLoggedIn(state) { 
+      return state.isLoggedIn;
+    },
+    isAdmin(state) {
+      return state.role === 'admin'; 
+    },
   },
 });
 
 export default store;
+
+
 

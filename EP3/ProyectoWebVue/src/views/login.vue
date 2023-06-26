@@ -26,6 +26,7 @@
 @import '../assets/login.scss';
 </style>
 
+// login.vue
 <script>
 import axios from 'axios';
 import $ from 'jquery';
@@ -86,13 +87,31 @@ export default {
 
         if (usuarioEncontrado) {
           alert('¡Ha ingresado correctamente!');
-
+          this.$store.dispatch('setRole', 'usuario');
+          this.$store.dispatch('setLoggedIn', true);
+          this.$router.push('/preferencias');
         } else {
-          this.intentosFallidos++;
-          if (this.intentosFallidos >= 3) {
-            alert('Ha excedido el límite de intentos. Por favor, intente más tarde.');
+          // Si el usuario no se encuentra en la tabla "usuarios", buscar en la tabla "admin"
+          const responseAdmin = await axios.get('http://localhost:3000/admin');
+          const adminData = responseAdmin.data;
+
+          const adminEncontrado = adminData.find(
+            admin =>
+              admin.nombre === this.nombre && admin.contrasena === this.contrasena
+          );
+
+          if (adminEncontrado) {
+            alert('¡Ha ingresado como administrador!');
+            this.$store.dispatch('setRole', 'admin');
+            this.$store.dispatch('setLoggedIn', true);
+            this.$router.push('/preferencias');
           } else {
-            alert('Nombre de usuario o contraseña incorrectos. Intento #' + this.intentosFallidos);
+            this.intentosFallidos++;
+            if (this.intentosFallidos >= 3) {
+              alert('Ha excedido el límite de intentos. Por favor, intente más tarde.');
+            } else {
+              alert('Nombre de usuario o contraseña incorrectos. Intento #' + this.intentosFallidos);
+            }
           }
         }
       } catch (error) {
@@ -100,11 +119,13 @@ export default {
       }
     },
     submitForm() {
-
+      
     }
   }
 };
 </script>
+
+
 
 
 

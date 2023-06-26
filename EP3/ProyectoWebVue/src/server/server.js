@@ -68,13 +68,26 @@ app.put('/usuarios', (req, res) => {
 });
 
 
-
-// GET
+// GET usuarios
 app.get('/usuarios', (req, res) => {
   const query = `SELECT * FROM usuarios`;
   connection.query(query, (err, results) => {
     if (err) {
       console.error('Error al obtener los usuarios de la base de datos:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+
+    res.status(200).json(results);
+  });
+});
+
+// GET admin
+app.get('/admin', (req, res) => {
+  const query = `SELECT * FROM admin`;
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error al obtener los datos de admin de la base de datos:', err);
       res.status(500).send('Error en el servidor');
       return;
     }

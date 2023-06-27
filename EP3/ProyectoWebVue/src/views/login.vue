@@ -89,7 +89,6 @@ export default {
           this.$store.dispatch('setLoggedIn', true);
           this.$router.push('/preferencias');
         } else {
-          // Si el usuario no se encuentra en la tabla "usuarios", buscar en la tabla "admin"
           const responseAdmin = await axios.get('http://localhost:3000/admin');
           const adminData = responseAdmin.data;
 

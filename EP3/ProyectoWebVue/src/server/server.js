@@ -2,10 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
-const fs = require('fs');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
 
 
@@ -25,6 +27,14 @@ connection.connect(err => {
   }
   console.log('Conexión exitosa a la base de datos MySQL');
 });
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
+  message: 'Demasiadas solicitudes desde esta IP, por favor intenta de nuevo después de un tiempo.'
+});
+
+app.use(limiter);
 
 // POST
 app.post('/usuarios', (req, res) => {

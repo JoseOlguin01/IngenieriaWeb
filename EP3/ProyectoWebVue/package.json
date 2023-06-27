@@ -17,9 +17,11 @@
     "bootstrap-vue": "^2.23.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
     "express-recaptcha": "^5.1.0",
     "jquery": "^3.7.0",
     "jquery-validation": "^1.19.5",
+    "jsonwebtoken": "^9.0.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.4.0",
     "vee-validate": "^4.9.6",
@@ -30,6 +32,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "dotenv": "^16.3.1",
     "sass": "^1.63.3",
     "sass-loader": "^13.3.1",
     "vite": "^4.3.5"
